@@ -1,0 +1,43 @@
+<h1>Listing todo_lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="5%">Title</th>
+      <th width="60%">Description</th>
+      <th width="20%">Completed?</th>
+      <th width="15%">Complete</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_lists.each do |todo_list| %>
+    <tr> 
+        <td><%= todo_list.title %></td>
+        <td><%= todo_list.description %></td>
+        <td><%= todo_list.complete %>, <%= (Time.now) %> ago</td>
+        <td><%= link_to 'Complete', complete_todo_list_path(:id), method: :put %></td>
+        <td><%= link_to 'List Item', todo_list_todo_items_path(todo_list) %></td>
+        <td><%= link_to 'Show', todo_list %></td>
+        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
+        <td><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
+    
+        <% if todo_list.completed? %>
+        <%= todo_list.completed at %>
+      <% else %>
+        <% link_to "Mark Complete", complete_todo_list, method: :patch %>
+     <% end %> 
+    
+    </tr>
+    <% end %>
+    
+   
+  
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Todo list', new_todo_list_path %>

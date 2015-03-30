@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :todo_lists
+  
 
   root "todo_lists#index"
+  match "/todo_list/complete/:id" => "todo_lists#complete", as: "complete_todo_list", via: :put
+  
+  resources :todo_lists
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

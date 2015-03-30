@@ -21,6 +21,16 @@ class TodoListsController < ApplicationController
   def edit
   end
 
+  # Mark todo_list complete
+  def complete
+    @todo_list = TodoList.find(params[:id])
+    @todo_list.complete = true
+    @todo_list.save
+    redirect_to @todo_list
+  end
+  
+    
+  
   # POST /todo_lists
   # POST /todo_lists.json
   def create
@@ -69,6 +79,6 @@ class TodoListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description)
+      params.require(:todo_list).permit(:title, :description, :complete)
     end
 end

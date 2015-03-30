@@ -39,3 +39,9 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem "better_errors"
+gem "binding_of_caller"
+## Pry as REPL in Rails Console
+gem 'pry'
+gem 'pry-rails'
+gem 'newrelic_rpm'
