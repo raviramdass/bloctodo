@@ -71,7 +71,7 @@ class TodoListsController < ApplicationController
     end
   end
 
-  private
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
       @todo_list = TodoList.find(params[:id])

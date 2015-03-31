@@ -6,12 +6,10 @@ class TodoItemsController < ApplicationController
   end
   
   def new
-    #@todo_list = TodoList.find(params[:todo_list_id])
     @todo_item = @todo_list.todo_items.new
   end
   
   def create
-    #@todo_list = TodoList.find(params[:todo_list_id])
     @todo_item = @todo_list_todo_items.new(todo_item_params)
       if todo_item.save
         flash[:success] = "Todo Item was added to Todo List."
@@ -36,11 +34,7 @@ class TodoItemsController < ApplicationController
         flash[:error] = "Todo list could not be deleted."
       end
        redirect_to todo_list_todo_items_path
-       #@todo_list = TodoList.find(params[:id])
-       #if @todo_list.destroy      
-       #redirect_to todo_lists_path, notice: "Item marked complete."
   end
-    
   
   def edit
     @todo_item = @todo_list_todo_item.find(params[:id])
@@ -50,10 +44,9 @@ class TodoItemsController < ApplicationController
   
   def find_todo_list
     @todo_list = current_user.todo_list.find(params[:todo_list_id])
-    #@todo_list = TodoList.find(params[:todo_list_id])
   end
     
-    def todo_item_params
-      params[:todo_item].permit(:content)
-    end
+  def todo_item_params
+    params[:todo_item].permit(:content)
+  end
 end

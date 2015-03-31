@@ -45,3 +45,4 @@ gem "binding_of_caller"
 gem 'pry'
 gem 'pry-rails'
 gem 'newrelic_rpm'
+gem 'whenever', :require => false
