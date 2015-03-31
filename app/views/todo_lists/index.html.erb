@@ -6,6 +6,7 @@
       <th width="10%">Title</th>
       <th width="25%">Description</th>
       <th width="15%">Completed</th>
+      <th width="25%">EndDate</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +16,8 @@
       <tr>
         <td><%= todo_list.title %></td>
         <td><%= todo_list.description %></td>
-        <td><%= todo_list.complete %>
+        <td><%= todo_list.complete %></td>
+        <td><%= todo_list.enddate %></td>
         <td><%= link_to 'Complete', complete_todo_list_path(todo_list), method: :put %></td>
         <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
         <td><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
